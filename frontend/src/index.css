@@ -10,12 +10,12 @@
 } */
 
 body {
-  margin: 4.5rem 0 auto 0;
+  margin: 3.5rem 0 auto 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-image: url(./assets/burger.png);
+  background-image: url(./assets/download1.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

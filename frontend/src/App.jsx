@@ -16,7 +16,6 @@ function App() {
   return (
     <div className='App'>
       <Header />
-      <Login />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/menu' element={<Menu />} />

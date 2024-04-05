@@ -7,9 +7,11 @@ import './Home.css'
 
 const Home = () => {
   return (
-    <div>
-        {/* <Login /> */}
-        <Content />  
+    <div className='home'>
+        <Login />
+      <div className='content'>
+        <p className='welcome'>Welcome To My Restaurant</p>
+      </div>  
       <div className='display'>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, erat sed commodo pulvinar, odio nisl vehicula justo, a tincidunt nibh quam in velit. Sed non enim ut lectus lobortis volutpat sit amet eu nibh. Etiam pretium lorem quam, ut lobortis nisl fermentum scelerisque. In hac habitasse platea dictumst. Integer sit amet nisi eu turpis luctus venenatis at et massa. Mauris fringilla tincidunt odio eu tincidunt. Aliquam auctor est eros, aliquet varius est aliquam vel.
 
