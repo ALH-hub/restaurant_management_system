@@ -22,7 +22,7 @@ const Menu = () => {
 
   return (
     <>
-    {/* <Login /> */}
+    <Login />
     <div className='menu-box'>
           {
               data.map(menu => (
