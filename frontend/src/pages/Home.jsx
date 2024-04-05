@@ -3,13 +3,14 @@ import Content from '../Content'
 import Login from '../Login'
 import LoginForm from '../component/LoginForm'
 import { NavLink } from 'react-router-dom'
+import './Home.css'
 
 const Home = () => {
   return (
     <div>
-        <Login />
+        {/* <Login /> */}
         <Content />  
-      <div>
+      <div className='display'>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, erat sed commodo pulvinar, odio nisl vehicula justo, a tincidunt nibh quam in velit. Sed non enim ut lectus lobortis volutpat sit amet eu nibh. Etiam pretium lorem quam, ut lobortis nisl fermentum scelerisque. In hac habitasse platea dictumst. Integer sit amet nisi eu turpis luctus venenatis at et massa. Mauris fringilla tincidunt odio eu tincidunt. Aliquam auctor est eros, aliquet varius est aliquam vel.
 
 Praesent ut orci vitae erat hendrerit mattis. Proin eget augue vel turpis aliquet tristique eget eu diam. Aliquam auctor commodo purus ut pharetra. Curabitur consectetur nibh in porttitor pulvinar. Cras quis orci facilisis, consectetur dui a, viverra libero. Praesent sit amet diam rutrum, elementum nisl a, eleifend est. Nulla id dui sed tellus pharetra placerat in eget lorem. Etiam interdum dolor porta, blandit neque at, varius ligula. Suspendisse fermentum risus et aliquam lacinia. Integer pulvinar neque vitae quam molestie tristique.

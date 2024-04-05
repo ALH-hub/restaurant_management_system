@@ -1,19 +1,25 @@
 #!/usr/bin/python3
 
 from werkzeug.security import check_password_hash, generate_password_hash
-from flask import Flask, request, jsonify, abort
+from flask import Flask, request, jsonify
 from pymongo import MongoClient
 from flask_cors import CORS
 from bson import ObjectId
 import os
+from flask_jwt_extended import create_access_token, JWTManager
 
 
 app = Flask(__name__)
 CORS(app)
+app.config['SECRET_KEY'] = 'key@rms' 
+
 URI = os.environ.get('RMS_DATABASE_URI')
 client = MongoClient(URI)
 
+jwt = JWTManager(app)
+
 db = client.rms_db
+
 
 @app.errorhandler(404)
 def not_found(error=None):
@@ -35,18 +41,17 @@ def login():
     data = request.json
     name = data['name']
     email = data['email']
-    address = data['address']
     password = data['password']
 
     if email and password and name:
         user = db.customers.find_one({'email': email})
 
         if user and check_password_hash(user['password'], password):
-            # Login successful
+            access_token = create_access_token(identity=str(user['_id']))
             message = {
                 'status': 200,
                 'message': 'Login successful',
-                'email': user['email'],
+                'token': access_token,  # Include the JWT token in the response
                 'id': str(user['_id'])
             }
             return jsonify(message), 200
@@ -59,6 +64,25 @@ def login():
             return jsonify(message), 401
     else:
         return not_found()
+
+
+#payment endpoints   
+@app.route('/pay', methods=['POST'])
+def pay():
+    email = request.json.get('email', None)
+    menu = request.json.get('menu')
+    price = request.json.get('price')
+
+    if not email:
+        return jsonify({'message': 'missing email'}), 400
+
+    db.orders.insert_one({
+    "email": email,
+    "menu": menu,
+    "price": price,
+})
+
+    return {"message": 'payment successful'}, 200
 
 
 #Menu endpoints
@@ -89,8 +113,10 @@ def get_menu(id):
 def post_menu():
     """create a new menu"""
     data = request.json
+    
     if data is None:
         return jsonify({'Error': 'Missing Parameters'})
+    
     name = data.get('name')
     description = data.get('description')
     price = data.get('price')
@@ -150,8 +176,10 @@ app.route('/menu/<id>', methods=["DELETE"])
 def delete_menu(id):
     """delete a specific menu"""
     result = db.menu.delete_one({'_id': ObjectId(id)})
+
     if result > 0:
         return jsonify({"status": 200, "message": "Menu deleted sucessfully"})
+    
     return jsonify({'status': 404, 'message': 'Menu Not Found'})
 
 
@@ -183,6 +211,7 @@ def get_customer(id):
 def post_customer():
     """create a new customers"""
     data = request.json
+
     if data is None:
         return jsonify({'Error': 'Missing Parameters'})
     
@@ -196,6 +225,7 @@ def post_customer():
         return jsonify({'Error': 'Missing Name or password or email'})
     
     verif = db.customers.find_one({'email': 'email'})
+
     if verif is email:
         return jsonify({
             'message': 'user email already exist',
@@ -208,6 +238,7 @@ def post_customer():
         'address': address,
         "password": pwd
     })
+
     return jsonify({"Message": "Addition successful"})
 
 @app.route('/customers/<id>', methods=["PUT"])
@@ -218,6 +249,7 @@ def update_customer(id):
     
     update_list = {}
     data = request.json
+
     name = data.get('name')
     address = data.get('address')
     email = data.get('email')
@@ -236,14 +268,17 @@ def update_customer(id):
         return jsonify({"Message": "Updates must reset Password too"})
 
     db.customers.update_one({'_id': ObjectId(id)}, {'$set': update_list})
+
     return jsonify({'Message': 'Update successful'})
 
 app.route('/customers/<id>', methods=["DELETE"])
 def delete_customer(id):
     """delete a specific user"""
     result = db.customers.delete_one({'_id': ObjectId(id)})
+
     if result > 0:
         return jsonify({"status": 200, "message": "User deleted sucessfully"})
+    
     return jsonify({'status': 404, 'message': 'User Not Found'})
 
 
@@ -276,6 +311,7 @@ def get_table(id):
 def post_table():
     """create a new table value"""
     data = request.json
+
     if data is None:
         return jsonify({'Error': 'Missing Parameters'})
     
@@ -293,6 +329,7 @@ def post_table():
         'available': available,
         'customer_id': ObjectId(customer_id)
     })
+
     return jsonify({"Message": "Addition successful"})
 
 @app.route('/table/<id>', methods=["PUT"])
@@ -303,6 +340,7 @@ def update_table(id):
     
     update_list = {}
     data = request.json
+
     mode = data.get('mode')
     seat_number = data.get('seat_number')
     available = data.get('available')
@@ -318,14 +356,17 @@ def update_table(id):
         update_list['mode'] = mode
 
     db.table.update_one({'_id': ObjectId(id)}, {'$set': update_list})
+
     return jsonify({'Message': 'Update successful'})
 
 app.route('/table/<id>', methods=["DELETE"])
 def delete_table(id):
     """delete a specific table value"""
     result = db.table.delete_one({'_id': ObjectId(id)})
+
     if result > 0:
         return jsonify({"status": 200, "message": "table deleted sucessfully"})
+    
     return jsonify({'status': 404, 'message': 'Table Not Found'})
 
 
@@ -357,8 +398,10 @@ def get_item(id):
 def post_item():
     """create a new item"""
     data = request.json
+
     if data is None:
         return jsonify({'Error': 'Missing Parameters'})
+    
     name = data.get('name')
     description = data.get('description')
     price = data.get('price')
@@ -376,6 +419,7 @@ def post_item():
         'price': price,
         'menu_ids': menu_ids
     })
+
     return jsonify({"Message": "Addition successful"})
 
 @app.route('/item/<id>', methods=["PUT"])
@@ -403,14 +447,17 @@ def update_item(id):
         update_list['menu_ids'] = menu_ids
 
     db.item.update_one({'_id': ObjectId(id)}, {'$set': update_list})
+
     return jsonify({'Message': 'Update successful'})
 
 app.route('/item/<id>', methods=["DELETE"])
 def delete_item(id):
     """delete a specific item"""
     result = db.item.delete_one({'_id': ObjectId(id)})
+
     if result > 0:
         return jsonify({"status": 200, "message": "Item deleted sucessfully"})
+    
     return jsonify({'status': 404, 'message': 'Item Not Found'})
 
 
@@ -442,8 +489,10 @@ def get_inventory(id):
 def post_inventory():
     """create a new inventory"""
     data = request.json
+
     if data is None:
         return jsonify({'Error': 'Missing Parameters'})
+    
     name = data.get('name')
     description = data.get('description')
     unit_price = data.get('unit_price')
@@ -460,6 +509,7 @@ def post_inventory():
         'unit': unit,
         'stock_level': stock_level
     })
+
     return jsonify({"Message": "Addition successful"})
 
 @app.route('/inventory/<id>', methods=["PUT"])
@@ -470,6 +520,7 @@ def update_inventory(id):
     
     update_list = {}
     update = request.json
+    
     name = update.get('name')
     description = update.get('description')
     unit_price = update.get('unit_price')
@@ -488,14 +539,17 @@ def update_inventory(id):
         update_list['stock_level'] = stock_level
 
     db.inventory.update_one({'_id': ObjectId(id)}, {'$set': update_list})
+
     return jsonify({'Message': 'Update successful'})
 
 app.route('/inventory/<id>', methods=["DELETE"])
 def delete_inventory(id):
     """delete a specific inventory"""
     result = db.inventory.delete_one({'_id': ObjectId(id)})
+
     if result > 0:
         return jsonify({"status": 200, "message": "Inventory deleted sucessfully"})
+    
     return jsonify({'status': 404, 'message': 'Inventory Not Found'})
 
 
@@ -512,23 +566,6 @@ def get_orders():
 
     return jsonify(data_list)
 
-@app.route('/orders/<id>', methods=["PUT"])
-def update_order(id):
-    """update an order"""
-    order = db.orders.find_one({'_id': ObjectId(id)})
-    if not order:
-        abort(404)
-    data = request.json
-    if data is None:
-        return jsonify({'message': 'missing parameters'})
-    update = {
-        'menu_id': ObjectId(data.get('menu_id')),
-        'customer_id': ObjectId(data.get('customer_id'))
-    }
-
-    db.orders.update_one({'_id': ObjectId(id)}, {'$set': update})
-
-    return jsonify({'message': 'update successful'})
 
 @app.route('/orders/<id>', methods=["GET"])
 def get_order(id):
@@ -541,30 +578,15 @@ def get_order(id):
 
     return jsonify(id)
 
-@app.route('/orders', methods=["POST"])
-def post_order():
-    """create a new orders"""
-    data = request.json
-    if data is None:
-        return jsonify({'Error': 'Missing Parameters'})
-    menu_id = data.get('menu_id')
-    customer_id = data.get('customer_id')
-
-    if menu_id is None or customer_id is None:
-        return jsonify({'Error': 'Missing menu id or customer id'})
-    
-    db.orders.insert_one({
-        'menu_id': menu_id,
-        'customer_id': customer_id
-    })
-    return jsonify({"Message": "Addition successful"})
 
 app.route('/orders/<id>', methods=["DELETE"])
 def delete_order(id):
     """delete a specific orders"""
     result = db.orders.delete_one({'_id': ObjectId(id)})
+
     if result > 0:
         return jsonify({"status": 200, "message": "Order deleted sucessfully"})
+    
     return jsonify({'status': 404, 'message': 'order Not Found'})
 
 if __name__ == '__main__':

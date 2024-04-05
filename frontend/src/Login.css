@@ -119,3 +119,28 @@
     width: 100vw;
     height: 100vh;
 }
+
+.logout {
+    display: flex;
+    gap: 30rem;
+    justify-content: right;
+}
+
+/* .welcome-logged {
+    margin-right: 30rem;
+} */
+
+.logout button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    color: #fff;
+    background: #770177;
+    border-radius: 50px;
+    border: 0;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+}

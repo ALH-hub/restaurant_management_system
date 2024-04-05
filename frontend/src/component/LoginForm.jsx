@@ -1,56 +1,59 @@
-import React, { useState } from 'react'
-import user_icon from '../assets/user_icon.svg'
-import email_icon from '../assets/email_icon.svg'
-import password_icon from '../assets/password_icon.svg'
-import './LoginForm.css'
-import { NavLink } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
-import address_icon from '../assets/address_icon.svg'
+import React, { useState, useEffect } from 'react';
+import user_icon from '../assets/user_icon.svg';
+import email_icon from '../assets/email_icon.svg';
+import password_icon from '../assets/password_icon.svg';
+import address_icon from '../assets/address_icon.svg';
+import './LoginForm.css';
+import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios'; // Import axios for HTTP requests
 
 const LoginForm = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('')
-    const [address, setAddress] = useState('')
-    const navigate = useNavigate()
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [address, setAddress] = useState('');
+  const navigate = useNavigate();
 
-    const handleEmailChange = (event) => {
-        setEmail(event.target.value);
-    }
-
-    const handleNameChange = (event) => {
-        setName(event.target.value);
-    }
-
-    const handleAddressChange = (event) => {
-      setAddress(event.target.value);
-    }
-
-    const handlePasswordChange = (event) => {
-        setPassword(event.target.value);
-    }
-
-    //Implementing loging logic
-    const handleLoginSubmit = (event) => {
-        event.preventDefault();
-        fetch("http://127.0.0.1:5000/login", {
-        'method': 'POST',
-        headers: {
-            "Content-Type": 'application/json',
-        },
-        'body': JSON.stringify({name, email, address, password})
-        })
-        .then((r) => {
-        if (r.status == 200) {
-            navigate('/menu')
-            r.json()
-        }
-        })
-        .catch (error => {
-        console.error(error)
-        })
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
   };
 
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
+
+  const handleAddressChange = (event) => {
+    setAddress(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  // Implement login logic with JWT generation
+  const handleLoginSubmit = async (event) => {
+    event.preventDefault();
+
+    await fetch("http://127.0.0.1:5000/login", {
+      'method': 'POST',
+      headers: {
+                "Content-Type": 'application/json',
+              },
+      'body': JSON.stringify({name, email, address, password})
+    })
+    .then((r) => {
+      if (r.status == 200) {
+        localStorage.setItem('jwtToken', r.token);
+        navigate('/menu');
+      } else {
+        console.error('Login failed:', r.message);
+      }
+    })
+    .catch (error => {
+      console.error('Login error:', error);
+    })
+};
 
   return (
     <div>

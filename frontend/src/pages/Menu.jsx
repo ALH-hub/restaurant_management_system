@@ -3,10 +3,13 @@ import './Menu.css';
 import { useState, useEffect } from 'react';
 import {Image} from 'cloudinary-react'
 import Login from '../Login';
+import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Menu = () => {
 
   const [data, setData] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetch('http://127.0.0.1:5000/menu', {
@@ -19,7 +22,7 @@ const Menu = () => {
 
   return (
     <>
-    <Login />
+    {/* <Login /> */}
     <div className='menu-box'>
           {
               data.map(menu => (
@@ -29,7 +32,11 @@ const Menu = () => {
                 <h2>{String(menu.name)}</h2>
                 <p>{String(menu.description)}</p>
                 <p>Price: {menu.price}$</p>
-                <button className="purchase">Order</button>
+                {/* <NavLink to='/payment' > */}
+                  <button className="purchase" onClick={() => navigate('/payment', { price: menu.price, menu: menu.name })}>
+                    Order
+                  </button>
+                {/* </NavLink> */}
                 </div>
               </div>
             ))
