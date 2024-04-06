@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Lobster&display=swap')
 .display {
     display: flex;
     flex-direction: column;
@@ -23,7 +22,7 @@
 .welcome {
     color: rgb(0, 0, 0);
     font-size: 100px;
-    font-family: "Lobster", sans-serif;
+    font-family: Roboto, Oxygen, 'Open Sans', sans-serif;
     font-style: normal;
     font-weight: 400px;
     margin-bottom: 50px;
