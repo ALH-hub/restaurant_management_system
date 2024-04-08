@@ -6,7 +6,6 @@ import address_icon from '../assets/address_icon.svg';
 import './LoginForm.css';
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; // Import axios for HTTP requests
 
 const LoginForm = () => {
   const [name, setName] = useState('');
@@ -56,7 +55,7 @@ const LoginForm = () => {
 };
 
   return (
-    <div>
+    <div id='login-page'>
       <form onSubmit={handleLoginSubmit}>
         <div className="container-login">
           <div className="header-login">
@@ -72,11 +71,11 @@ const LoginForm = () => {
             <input type="email" placeholder='email' onChange={handleEmailChange} required />
           </label>
           <label className="input-element-su">
-            <img src={email_icon} alt="address_icon" />
+            <img src={address_icon} alt="address_icon" />
             <input type="text" placeholder='address' onChange={handleAddressChange} required />
           </label>
           <label className="input-element-login">
-            <img src={address_icon} alt="password_icon" />
+            <img src={password_icon} alt="password_icon" />
             <input type="password" placeholder='password' onChange={handlePasswordChange} required />
           </label>
           <div className='log-buttons'>

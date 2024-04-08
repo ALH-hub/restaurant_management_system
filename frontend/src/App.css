@@ -1,6 +1,11 @@
 #root {
   max-width: 100%;
- 
   text-align: center;
 }
 
+
+body {
+  background-color: rgba(112, 108, 108, 0.2);
+  margin: 0;
+  padding: 0;
+}

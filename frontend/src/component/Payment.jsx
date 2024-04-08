@@ -39,7 +39,8 @@ const Payment = (props) => {
     };
 
   return (
-    <div className="payment-form">
+    <div className="pay-page">
+      <div className="payment-form">
         <h1 className='title'>Payment Form</h1>
         <form className='pay-form' onSubmit={handleSubmit}>
             <label htmlFor="card-number" className='pay-label'>
@@ -62,6 +63,7 @@ const Payment = (props) => {
                 </NavLink>
            </div>
         </form>
+    </div>
     </div>
   )
 }

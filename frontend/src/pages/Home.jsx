@@ -1,15 +1,12 @@
 import React from 'react'
-import Content from '../Content'
 import Login from '../Login'
-import LoginForm from '../component/LoginForm'
-import { NavLink } from 'react-router-dom'
 import './Home.css'
 
 const Home = () => {
   return (
     <>
     <div className='home'>
-        <Login />
+    <Login />
       <div className='content'>
         <p className='welcome'>DELICIOUS DINING EXPERIENCE</p>
         <p className='welcome-message'>Welcome to RMS, our restaurant where we serve the most delicious and nutritious food in town. We take pride in our fantastic vibes and affordable prices, making it the perfect place for diners of all ages. Visit us today or book your table online!

@@ -1,3 +1,14 @@
+.pay-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  max-height: 100vh;
+  background-color: rgba(112, 108, 108, 0.4);
+}
+
 .payment-form {
     display: flex;
     flex-direction: column;
@@ -7,7 +18,7 @@
     margin: 0;
     margin-top: 30px;
     padding: 0;
-    background: rgba(248, 198, 124, 0.8);
+    background: rgb(112, 108, 108);
     position: relative;
     width: 50vw;
     height: 80vh;
@@ -36,6 +47,8 @@
     margin: 0;
     display: inline;
     width: 8rem;
+    color: white;
+    font-size: large;
   }
   
   .pay-submit {

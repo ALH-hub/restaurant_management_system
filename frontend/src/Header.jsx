@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom'
 const Header = () => {
   return (
       <nav id='navbar'>
+        <p>RMS</p>
         <ul className='links'>
           <li><NavLink to='/'>Home</NavLink></li>
           <li><NavLink to='/menu'>Menu</NavLink></li>
