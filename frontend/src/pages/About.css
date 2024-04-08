@@ -1,0 +1,69 @@
+.about-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(156, 156, 151, 0.4);
+    width: 100vw;
+    max-width: 100%;
+}
+
+.abt-container1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    padding-top: 3rem;
+    background-color: gray;
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    gap: 9rem;
+    width: 100%;
+}
+
+.about .abt-image {
+    margin: 35px;
+}
+
+.about p {
+    width: 40rem;
+    font-size: 26px;
+    padding-top: 2rem;
+}
+
+.abt-container2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    padding-top: 3rem;
+    background-color: rgb(141, 132, 132);
+}
+
+.story {
+    display: flex;
+    justify-content: center;
+    gap: 9rem;
+    width: 100%;
+}
+
+
+
+
+
+.abt-image {
+    width: 24rem;
+    height: 50%;
+}
+
+.title {
+    display: block;
+    width: 100%;
+}
