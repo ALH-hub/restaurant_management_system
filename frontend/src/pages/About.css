@@ -101,6 +101,7 @@
 .abt-image {
     width: 24rem;
     height: 50%;
+    border-radius: 50%;
 }
 
 .title {
