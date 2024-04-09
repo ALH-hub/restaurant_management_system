@@ -17,17 +17,19 @@
     max-width: 100%;
     padding-top: 3rem;
     background-color: gray;
+    color: white;
 }
 
 .about {
     display: flex;
     justify-content: center;
-    gap: 9rem;
+    gap: 2rem;
     width: 100%;
 }
 
 .about .abt-image {
-    margin: 35px;
+    margin-left: 35px;
+    margin-bottom: 3rem;
 }
 
 .about p {
@@ -45,6 +47,7 @@
     max-width: 100%;
     padding-top: 3rem;
     background-color: rgb(141, 132, 132);
+    color: white;
 }
 
 .story {
@@ -54,7 +57,44 @@
     width: 100%;
 }
 
+.abt-container3 {
+    width: 100%;
+    max-width: 100%;
+    padding-top: 3rem;
+    background-color: rgb(158, 151, 151);
+    color: white;
+}
 
+.services {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+ 
+}
+
+.service-img {
+    margin-right: 7rem;
+    margin-bottom: 3rem;
+}
+
+.service-container {
+    display: flex;
+    align-content: center;
+    justify-self: center;
+    flex-wrap: wrap;
+    margin-left: 3.5rem;
+    margin-bottom: 3rem;
+    gap: 2rem;
+}
+
+
+.service p {
+    width: 20rem;
+    font-size: 20px;
+
+}
 
 
 
@@ -66,4 +106,36 @@
 .title {
     display: block;
     width: 100%;
+    color: black;
+}
+
+.contact-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgb(179, 172, 172);
+    padding-bottom: 3rem;
+}
+
+.contact-container h1 {
+    margin-bottom: 3px;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    align-items: center;
+    justify-content: center;
+    padding-top: 3rem;
+}
+
+.contacts a{
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.contacts a:visited, .contacts a:hover {
+    color: black;
 }

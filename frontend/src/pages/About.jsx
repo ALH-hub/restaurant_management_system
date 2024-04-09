@@ -22,33 +22,39 @@ const About = () => {
           <p>As a passionate food enthusiast and someone who frequents restaurants, I've encountered the challenges faced by both diners and restaurant owners. Long wait times, confusing menus, and inefficient processes inspired me to create RMS. I envisioned a dynamic system that adapts to any restaurant, making their operations smoother and more user-friendly. </p>
         </div>
       </div>
-      <div className='services'>
+      <div className="abt-container3">
         <h1 className='title'>What We Offer </h1>
-        <img src={services} alt="services" className='abt-image'/>
-        <div className='service'>
-          <h2>Seamles Ordering</h2>
-          <p>Menu Ordering: With RMS, customers can explore the menu, customize their orders, and place them seamlessly. No more waiting for a server to take your order—just a few clicks, and your favorite dish is on its way! </p>
-        </div>
-        <div className='service'>
-          <h2>Remote Table Reservation</h2>
-          <p>Effortless Reservations: Whether it's a romantic dinner or a business lunch, users can reserve tables remotely through our platform. Say goodbye to phone calls and waiting lists. </p>
-        </div>
-        <div className='service'>
-          <h2>Real-Time Menu Updates</h2>
-          <p>Stay Informed: RMS keeps users informed about the restaurant's current menu offerings. Craving a specific dish? Check if it's available before you arrive. </p>
-        </div>
-        <div className='analytics'>
-          <h2>User Analytics</h2>
-          <p>Insights for Success: Restaurant owners and administrators can analyze user data to make informed decisions. Understand peak hours, popular dishes, and customer preferences.</p>
+        <div className='services'>
+          <div className='service-container'>
+            <div className='service'>
+              <h2>Seamles Ordering</h2>
+              <p>Menu Ordering: With RMS, customers can explore the menu, customize their orders, and place them seamlessly. No more waiting for a server to take your order—just a few clicks, and your favorite dish is on its way! </p>
+            </div>
+            <div className='service'>
+              <h2>Remote Table Reservation</h2>
+              <p>Effortless Reservations: Whether it's a romantic dinner or a business lunch, users can reserve tables remotely through our platform. Say goodbye to phone calls and waiting lists. </p>
+            </div>
+            <div className='service'>
+              <h2>Real-Time Menu Updates</h2>
+              <p>Stay Informed: RMS keeps users informed about the restaurant's current menu offerings. Craving a specific dish? Check if it's available before you arrive. </p>
+            </div>
+            <div className='service'>
+              <h2>User Analytics</h2>
+              <p>Insights for Success: Restaurant owners and administrators can analyze user data to make informed decisions. Understand peak hours, popular dishes, and customer preferences.</p>
+            </div>
+          </div> 
+          <img src={services} alt="services" className='abt-image service-img'/>
         </div>
       </div>
-      <div>
-        <h1>Connect With Us</h1>
-        Email: Reach out to us at alhadjioum0@gmail.com. 
-        LinkedIn: Connect with me on LinkedIn. 
-        Twitter: Follow us @AlhadjiOumate0. 
-        Phone: Call us at +696555220. 
-        Github: ALH-hub 
+      <div className='contact-container'>
+        <h1>Connect With Me</h1>
+        <div className='contacts'>
+          <a href="mailto:alhadjioum0@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/oumate" target="_blank">LinkedIn</a>
+          <a href="https://twitter.com/AlhadjiOum0" target="_blank">Twitter</a>
+          <a href="tel:+237696555220">Call Me</a>
+          <a href="https:///github.com/ALH-hub" target='_blank'>Github</a>
+        </div>
       </div>
     </>
   )
