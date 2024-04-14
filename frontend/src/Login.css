@@ -1,5 +1,5 @@
 
-.buttons {
+.buttons, .logout {
     display: flex;
     justify-content: flex-end;
     align-items: end;
@@ -9,7 +9,7 @@
     z-index: 2;
 }
 
-.buttons button {
+button {
     height: 2.5rem;
     width: 4.5rem;
     border-radius: 20px;
@@ -21,6 +21,6 @@
     background-color: rgb(112, 108, 108);
 }
 
-.buttons button:hover {
+button:hover {
     background-color: rgb(73, 72, 72);
 }
