@@ -41,79 +41,8 @@ const Menu = () => {
               </div>
             ))
           }
-          <div className="element">
-            <div>
-              <Image cloudName="dzsv3mhyd" publicId="menu images/yoqvt8gbw6lbuu8zjjtu" className="image"/>
-              <h2>Hello there</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quas earum debitis accusamus cumque unde, dicta soluta ipsum dolore vero est molestias laboriosam et officiis suscipit libero blanditiis ea. Velit?</p>
-              <button className="purchase">Order</button>
-            </div>
-          </div>
-          <div className="element">
-            <div>
-              <Image cloudName="dzsv3mhyd" publicId="menu images/yoqvt8gbw6lbuu8zjjtu" className="image"/>
-              <h2>Hello there</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque placeat repellendus, deleniti hic repellat error?</p>
-              <button className="purchase">Order</button>
-            </div>
-          </div>
-          <div className="element">
-            <div>
-              <Image cloudName="dzsv3mhyd" publicId="menu images/yoqvt8gbw6lbuu8zjjtu" className="image"/>
-              <h2>Hello there</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque placeat repellendus, deleniti hic repellat error?</p>
-              <button className="purchase">Order</button>
-            </div>
-          </div>
-          <div className="element">
-            <div>
-              <Image cloudName="dzsv3mhyd" publicId="menu images/yoqvt8gbw6lbuu8zjjtu" className="image"/>
-              <h2>Hello there</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque placeat repellendus, deleniti hic repellat error?</p>
-              <button className="purchase">Order</button>
-            </div>
-          </div>
-          <div className="element">
-            <div>
-              <Image cloudName="dzsv3mhyd" publicId="menu images/yoqvt8gbw6lbuu8zjjtu" className="image"/>
-              <h2>Hello there</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque placeat repellendus, deleniti hic repellat error?</p>
-              <button className="purchase">Order</button>
-            </div>
-          </div>
-          <div className="element">
-            <div>
-              <Image cloudName="dzsv3mhyd" publicId="menu images/yoqvt8gbw6lbuu8zjjtu" className="image"/>
-              <h2>Hello there</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque placeat repellendus, deleniti hic repellat error?</p>
-              <button className="purchase">Order</button>
-            </div>
-          </div>
-          <div className="element">
-            <div>
-              <Image cloudName="dzsv3mhyd" publicId="menu images/yoqvt8gbw6lbuu8zjjtu" className="image"/>
-              <h2>Hello there</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque placeat repellendus, deleniti hic repellat error?</p>
-              <button className="purchase">Order</button>
-            </div>
-          </div>
-          <div className="element">
-            <div>
-              <Image cloudName="dzsv3mhyd" publicId="menu images/yoqvt8gbw6lbuu8zjjtu" className="image"/>
-              <h2>Hello there</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque placeat repellendus, deleniti hic repellat error?</p>
-              <button className="purchase">Order</button>
-            </div>
-          </div>
-          <div className="element">
-            <div>
-              <Image cloudName="dzsv3mhyd" publicId="menu images/yoqvt8gbw6lbuu8zjjtu" className="image"/>
-              <h2>Hello there</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque placeat repellendus, deleniti hic repellat error?</p>
-              <button className="purchase">Order</button>
-            </div>
-          </div>
-        </div>
+          
+      </div>
     </>
         
   )
