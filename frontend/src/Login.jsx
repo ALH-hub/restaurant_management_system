@@ -23,7 +23,7 @@ const Login = () => {
     return () => {
       window.removeEventListener('storage', (event) => {
         if (event.key === 'jwtToken') {
-          setIsLoggedIn(true); // This line might not be necessary here
+          setIsLoggedIn(true);
         }
       });
     };
