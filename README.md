@@ -47,7 +47,7 @@ Through relentless research, unwavering persistence (and a touch of excitement t
 
 The result? An elegant solution that guarantees secure logins, tracks sessions seamlessly, and keeps the user interface dynamic.  And let me tell you, the relief was incredible! 😁😁
 
-![image](https://github.com/ALH-hub/restaurant_management_system/assets/117912094/8bb6d15e-7ef3-49af-b6df-a8caeccfebc1)
+![200w](https://github.com/ALH-hub/restaurant_management_system/assets/117912094/f438594e-42ab-4383-bb3f-de1f73afe99d)
 
 
 This login hurdle turned into a major learning experience, proving that even seemingly simple tasks can hold hidden complexities. But with dedication and exploration, even the toughest challenges can be conquered.
