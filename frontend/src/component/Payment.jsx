@@ -14,7 +14,7 @@ const Payment = (props) => {
     //Implementing loging logic
     const handleSubmit = (event) => {
         event.preventDefault();
-        fetch("http://127.0.0.1:5000/pay", {
+        fetch("https://rmsb.onrender.com/pay", {
           'method': "POST",
           headers: {
             "Content-Type": "application/json",

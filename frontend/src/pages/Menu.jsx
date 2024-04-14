@@ -12,7 +12,7 @@ const Menu = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/menu', {
+    fetch('https://rmsb.onrender.com/menu', {
       'method': 'GET'
     })
     .then(resp => resp.json())
